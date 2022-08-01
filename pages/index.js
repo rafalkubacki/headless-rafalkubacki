@@ -31,6 +31,9 @@ export default function Home() {
             <li>
               <a href='https://www.pinterest.com/rafalkubacki/' target='_blank' rel='nofollow noopener noreferrer'>Pinterest</a>
             </li>
+            <li>
+              <a href='tel:+48787622468' target='_blank' rel='nofollow noopener noreferrer'>Phone</a>
+            </li>
           </ul>
         </div>
       </main>
