@@ -14,10 +14,6 @@ const links = [
     title: 'GitHub'
   },
   {
-    url: 'https://www.pinterest.com/rafalkubacki/',
-    title: 'Pinterest'
-  },
-  {
     url: 'tel:+48787622468',
     title: 'Phone'
   },
