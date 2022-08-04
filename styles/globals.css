@@ -63,6 +63,10 @@ a:hover {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  position: relative;
+  z-index: 20;
+  background: #0D0D0F;
+  margin-top: 100vh;
 }
 
 .container {
@@ -72,10 +76,130 @@ a:hover {
   margin: 0 auto;
 }
 
-@media (max-width: 1440px) {
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0;
+}
+
+.listItem {
+  width: 25%;
+  margin: 0;
+}
+
+.project {
+  width: 100%;
+  padding-top: 62.25%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a.project:hover .projectImage {
+  opacity: 10%;
+}
+
+.project:hover .projectContent {
+  opacity: 100%;
+}
+
+.project:hover .projectLink {
+  max-height: 40px;
+}
+
+div.project .projectImage {
+  filter: grayscale(100%);
+}
+
+.projectImage {
+  opacity: 35%;
+  transition: all 0.3s ease-in-out;
+}
+
+.projectContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.projectName {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
+
+.projectLink {
+  color: #ccc;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.projectCase {
+  color: #ccc;
+  background: #0D0D0F;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: lowercase;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px 40px 30px;
+  transform: rotate(-45deg) translate(30px, 50px);
+}
+
+.projectCase span {
+  display: block;
+}
+
+@media (max-width: 1600px) {
   .container {
     max-width: 1200px;
     padding: 0 40px;
+  }
+
+  .projectName {
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+  .projectLink {
+    font-size: 16px;
+  }
+
+  .projectCase {
+    font-size: 14px;
+    line-height: 16px;
+    transform: rotate(-45deg) translate(30px, 50px);
   }
   
   h1 {
@@ -99,7 +223,26 @@ a:hover {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1440px) {
+  .projectName {
+    font-size: 20px;
+    padding: 0 20px;
+  }
+
+  .projectLink {
+    font-size: 14px;
+    line-height: 30px;
+  }
+
+  .project:hover .projectLink {
+    max-height: 30px;
+  }
+
+  .projectCase {
+    font-size: 12px;
+    transform: rotate(-45deg) translate(25px, 50px);
+  }
+
   h1 {
     font-size: 50px;
     line-height: 70px;
@@ -125,9 +268,25 @@ a:hover {
   }
 }
 
+@media (max-width: 1200px) {
+  .listItem {
+    width: 33.3333%;
+  }
+}
+
+@media (max-width: 960px) {
+  .listItem {
+    width: 50%;
+  }
+}
+
 @media (max-width: 600px) {
   .container {
     padding: 0 20px;
+  }
+
+  .listItem {
+    width: 100%;
   }
 
   h1 {
