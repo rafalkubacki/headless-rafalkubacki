@@ -1,17 +1,26 @@
 @import url('/fonts/stylesheet.css');
 
+:root {
+  --primary: #000000;
+  --secondary: #0D0D0F;
+  --contrast: #FFFFFF;
+  --alternative: #CCCCCC;
+  --primaryFont: 'Montserrat', sans-serif;
+  --secondaryFont: 'Butler', sans-serif;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  background: #0D0D0F;
-  color: #FFFFFF;
+  background: var(--secondary);
+  color: var(--contrast);
   font-weight: 300;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--primaryFont);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Butler', sans-serif;
+  font-family: var(--secondaryFont);
   font-weight: 300;
   margin: 0;
 }
@@ -65,7 +74,7 @@ a:hover {
   min-height: 100vh;
   position: relative;
   z-index: 20;
-  background: #0D0D0F;
+  background: var(--secondary);
   margin-top: 100vh;
 }
 
@@ -148,7 +157,7 @@ div.project .projectImage {
 }
 
 .projectName {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--primaryFont);
   text-transform: uppercase;
   font-size: 30px;
   line-height: 40px;
@@ -157,15 +166,15 @@ div.project .projectImage {
 }
 
 .projectLink {
-  color: #ccc;
+  color: var(--alternative);
   max-height: 0;
   overflow: hidden;
   transition: all 0.3s ease-in-out;
 }
 
 .projectCase {
-  color: #ccc;
-  background: #0D0D0F;
+  color: var(--alternative);
+  background: var(--secondary);
   font-weight: 300;
   font-size: 16px;
   line-height: 20px;

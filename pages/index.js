@@ -17,6 +17,10 @@ const links = [
     url: 'tel:+48787622468',
     title: 'Phone'
   },
+  {
+    url: 'mailto:rafalkubacki7@gmail.com',
+    title: 'Email'
+  }
 ]
 
 const projects = [
