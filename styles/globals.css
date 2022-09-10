@@ -1,12 +1,12 @@
-@import url('/fonts/stylesheet.css');
+@import url("/fonts/stylesheet.css");
 
 :root {
   --primary: #000000;
-  --secondary: #0D0D0F;
-  --contrast: #FFFFFF;
-  --alternative: #CCCCCC;
-  --primaryFont: 'Montserrat', sans-serif;
-  --secondaryFont: 'Butler', sans-serif;
+  --secondary: #0d0d0f;
+  --contrast: #ffffff;
+  --alternative: #cccccc;
+  --primaryFont: "Montserrat", sans-serif;
+  --secondaryFont: "Butler", sans-serif;
 }
 
 html,
@@ -19,7 +19,12 @@ body {
   font-family: var(--primaryFont);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--secondaryFont);
   font-weight: 300;
   margin: 0;
@@ -66,16 +71,30 @@ a:hover {
   box-sizing: border-box;
 }
 
+.langswitcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 30;
+  text-transform: uppercase;
+}
+
+.langswitcher > * {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  margin-left: 10px;
+}
+
+.langswitcher .active {
+  font-weight: 500;
+}
+
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
   position: relative;
-  z-index: 20;
-  background: var(--secondary);
-  margin-top: 100vh;
 }
 
 .container {
@@ -105,11 +124,15 @@ a:hover {
   justify-content: flex-start;
   width: 100%;
   margin: 0;
+  position: relative;
+  z-index: 20;
+  margin-top: 100vh;
 }
 
 .listItem {
   width: 25%;
   margin: 0;
+  background: var(--secondary);
 }
 
 .project {
@@ -183,7 +206,7 @@ div.project .projectImage {
   bottom: 0;
   right: 0;
   padding: 10px 40px 30px;
-  transform: rotate(-45deg) translate(30px, 50px);
+  transform: rotate(-45deg) translate(28px, 50px);
 }
 
 .projectCase span {
@@ -210,31 +233,29 @@ div.project .projectImage {
     line-height: 16px;
     transform: rotate(-45deg) translate(30px, 50px);
   }
-  
+
   h1 {
     font-size: 70px;
     line-height: 90px;
   }
-  
+
   p {
     font-size: 20px;
     line-height: 40px;
     margin: 40px 0 0;
   }
-  
+
   ul {
     font-size: 20px;
     line-height: 40px;
   }
-  
+
   li {
     margin: 40px 40px 0 0;
   }
 }
 
 @media (max-width: 1440px) {
-  
-
   .projectName {
     font-size: 20px;
     padding: 0 20px;
@@ -258,18 +279,18 @@ div.project .projectImage {
     font-size: 50px;
     line-height: 70px;
   }
-  
+
   p {
     font-size: 16px;
     line-height: 40px;
     margin: 30px 0 0;
   }
-  
+
   ul {
     font-size: 16px;
     line-height: 40px;
   }
-  
+
   li {
     margin: 30px 30px 0 0;
   }
@@ -285,7 +306,7 @@ div.project .projectImage {
   .header br {
     display: none;
   }
-  
+
   .listItem {
     width: 50%;
   }
@@ -304,18 +325,18 @@ div.project .projectImage {
     font-size: 28px;
     line-height: 40px;
   }
-  
+
   p {
     font-size: 15px;
     line-height: 30px;
     margin: 20px 0 0;
   }
-  
+
   ul {
     font-size: 15px;
     line-height: 30px;
   }
-  
+
   li {
     margin: 20px 20px 0 0;
   }
