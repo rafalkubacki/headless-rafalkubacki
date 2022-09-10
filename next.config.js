@@ -1,8 +1,21 @@
-const nextTranslate = require("next-translate");
+/** @type {import('next').NextConfig} */
 
-module.exports = nextTranslate({
-  reactStrictMode: true,
-  images: {
-    domains: ["cdn.sanity.io"],
-  },
-});
+const nextTranslate = require("next-translate");
+const withPWA = require("next-pwa");
+const runtimeCaching = require("next-pwa/cache");
+
+module.exports = withPWA(
+  nextTranslate({
+    reactStrictMode: true,
+    images: {
+      domains: ["cdn.sanity.io"],
+    },
+    optimization: {
+      mergeDuplicateChunks: true,
+    },
+    pwa: {
+      dest: "public",
+      runtimeCaching,
+    },
+  })
+);
