@@ -2,16 +2,26 @@ import React from "react";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import client from "../lib/client";
+import imageUrlBuilder from "@sanity/image-url";
 import Hero from "../components/hero";
 import ProjectsList from "../components/projectsList";
 import LangSwitcher from "../components/langSwitcher";
+import { useRouter } from "next/router";
+
+const builder = imageUrlBuilder(client);
+
+function urlFor(source: object) {
+  return builder.image(source);
+}
 
 export default function Home({
   page,
 }: {
   page: {
-    metaTitle: string;
-    metaDescription: string;
+    seoTitle: string;
+    seoDescription: string;
+    seoKeywords: string;
+    seoImage: object;
     sections: Array<{
       _key: string;
       _type: string;
@@ -29,12 +39,31 @@ export default function Home({
     }>;
   };
 }) {
+  const { locale, defaultLocale } = useRouter();
   return (
     <>
       <Head>
-        {page?.metaTitle && <title>{page.metaTitle}</title>}
-        {page?.metaDescription && (
-          <meta name="description" content={page.metaDescription} />
+        {page?.seoTitle && <title>{page.seoTitle}</title>}
+        {page?.seoDescription && (
+          <meta name="description" content={page.seoDescription} />
+        )}
+        {page?.seoKeywords && (
+          <meta name="keywords" content={page.seoKeywords} />
+        )}
+        {page?.seoImage && (
+          <>
+            <meta property="og:image:width" content="279" />
+            <meta property="og:image:height" content="279" />
+            <meta property="og:description" content={page.seoDescription} />
+            <meta property="og:title" content={page.seoTitle} />
+            <meta property="og:image" content={urlFor(page.seoImage).url()} />
+            <meta
+              property="og:url"
+              content={`https://www.rafalkubacki.com/${
+                locale != defaultLocale ? locale : ""
+              }`}
+            />
+          </>
         )}
       </Head>
       <LangSwitcher />
@@ -60,8 +89,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
   );
 
   const page = await client.fetch(
-    `*[_type == "page" && slug == "/" && __i18n_lang == "${context.locale}"][0] {
-      metaTitle, metaDescription, sections
+    `*[_type == "page" && slug.current == "/" && __i18n_lang == "${context.locale}"][0] {
+      seoTitle, seoDescription, seoKeywords, seoImage, sections
     }`
   );
 
