@@ -4,8 +4,5 @@ module.exports = {
   pages: {
     "*": ["common"],
   },
-  reactStrictMode: true,
-  images: {
-    domains: ["cdn.sanity.io"],
-  },
+  localeDetection: false,
 };

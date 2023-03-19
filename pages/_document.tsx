@@ -19,7 +19,7 @@ class MyDocument extends Document {
           ></Script>
           <link
             rel="preload"
-            href="/fonts/Butler-Light.woff2"
+            href="../fonts/Butler-Light.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"

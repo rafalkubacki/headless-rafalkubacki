@@ -94,8 +94,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }`
   );
 
-  console.log(context.locale);
-
   page?.sections?.map(
     (section: { _type: string; showAll: boolean; projects: [] }) => {
       if (section._type == "projectsList" && section.showAll === true) {
