@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import parse from "html-react-parser";
 import client from "../lib/client";
 import imageUrlBuilder from "@sanity/image-url";
