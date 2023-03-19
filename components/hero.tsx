@@ -34,7 +34,7 @@ export default function Hero({
                 </a>
               ) : (
                 <Link href={node.url}>
-                  <a>{node.title}</a>
+                  {node.title}
                 </Link>
               )}
             </li>

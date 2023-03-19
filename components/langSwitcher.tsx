@@ -12,7 +12,7 @@ export default function LangSwitcher() {
             {node}
           </span>
         ) : (
-          <Link key={i} href="/" locale={node}>
+          <Link key={i} href="/" locale={node} legacyBehavior>
             {node}
           </Link>
         )
