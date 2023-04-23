@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@next/bundle-analyzer": "^12.3.0",
-    "@next/font": "^13.2.4",
     "@sanity/client": "^3.3.6",
     "@sanity/image-url": "^1.0.1",
     "html-react-parser": "^3.0.1",

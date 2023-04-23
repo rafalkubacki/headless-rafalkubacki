@@ -8,37 +8,35 @@ import ProjectsList from "../components/projectsList";
 import LangSwitcher from "../components/langSwitcher";
 import { useRouter } from "next/router";
 
+type page = {
+  seoTitle: string;
+  seoDescription: string;
+  seoKeywords: string;
+  seoImage: object;
+  sections: Array<{
+    _key: string;
+    _type: string;
+    title: string;
+    links: Array<{ title: string; url: string; external: boolean }>;
+    description: Array<{ children: Array<{ _type: string; text: string }> }>;
+    showAll: boolean;
+    projects: Array<{
+      externalUrl: string;
+      cardTitle: string;
+      cardImage: object;
+      title: string;
+      casePlanned: boolean;
+    }>;
+  }>;
+};
+
 const builder = imageUrlBuilder(client);
 
 function urlFor(source: object) {
   return builder.image(source);
 }
 
-export default function Home({
-  page,
-}: {
-  page: {
-    seoTitle: string;
-    seoDescription: string;
-    seoKeywords: string;
-    seoImage: object;
-    sections: Array<{
-      _key: string;
-      _type: string;
-      title: string;
-      links: Array<{ title: string; url: string; external: boolean }>;
-      description: Array<{ children: Array<{ _type: string; text: string }> }>;
-      showAll: boolean;
-      projects: Array<{
-        externalUrl: string;
-        cardTitle: string;
-        cardImage: object;
-        title: string;
-        casePlanned: boolean;
-      }>;
-    }>;
-  };
-}) {
+export default function Home({ page }: { page: page }) {
   const { locale, defaultLocale } = useRouter();
   return (
     <>
